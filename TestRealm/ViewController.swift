@@ -49,6 +49,10 @@ class ViewController: UIViewController {
             }
         }
         
+        try! realm.write {
+            vehicle?.year = 2000;
+        }
+        
         NSLog("Veículo: \(vehicle)");
     }
     
@@ -66,8 +70,5 @@ class ViewController: UIViewController {
         }
         return wheel!;
     }
-
-    
-
 }
 

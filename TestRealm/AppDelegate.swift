@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         config.schemaVersion = 1;
 
         // altera o nome do arquivo do banco de dados.
-        config.fileURL = config.fileURL!.URLByDeletingLastPathComponent!.URLByAppendingPathComponent("parezul.realm")
+        config.fileURL = config.fileURL!.URLByDeletingLastPathComponent!.URLByAppendingPathComponent("pareazul.realm")
         NSLog("fileURL: \(config.fileURL)");
         
         // configura para deletar o banco de dados em caso de mudança
@@ -37,6 +37,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         config.migrationBlock = { migration, oldSchemaVersion in
             print("Migration: \(migration), oldSchemaVersion: \(oldSchemaVersion)");
             // código de migração aqui
+            
+            if (oldSchemaVersion < 2) {
+                // migra do 1 pro 2
+                oldSchemaVersion++;
+            }
+            
+            if (oldSchemaVersion < 3) {
+                
+                oldSchemaVersion++;
+            }
+            
+            if (oldSchemaVersion < 4) {
+                
+                oldSchemaVersion++;
+            }
+            
+            
         }
         
         // Set this as the configuration used for the default Realm
