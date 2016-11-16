@@ -35,25 +35,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // algoritmo de migração
         config.migrationBlock = { migration, oldSchemaVersion in
-            print("Migration: \(migration), oldSchemaVersion: \(oldSchemaVersion)");
+            var oldVersion = oldSchemaVersion;
+            print("Migration: \(migration), oldVersion: \(oldVersion)");
             // código de migração aqui
             
-            if (oldSchemaVersion < 2) {
+            if (oldVersion < 2) {
                 // migra do 1 pro 2
-                oldSchemaVersion++;
+                oldVersion += 1;
             }
             
-            if (oldSchemaVersion < 3) {
+            if (oldVersion < 3) {
                 
-                oldSchemaVersion++;
+                oldVersion += 1;
             }
             
-            if (oldSchemaVersion < 4) {
+            if (oldVersion < 4) {
                 
-                oldSchemaVersion++;
+                oldVersion += 1;
             }
-            
-            
         }
         
         // Set this as the configuration used for the default Realm
