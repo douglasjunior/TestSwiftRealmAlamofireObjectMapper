@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // altera o nome do arquivo do banco de dados.
         config.fileURL = config.fileURL!.URLByDeletingLastPathComponent!.URLByAppendingPathComponent("pareazul.realm")
-        NSLog("fileURL: \(config.fileURL)");
+        print("Realm fileURL: \(config.fileURL)");
         
         // configura para deletar o banco de dados em caso de mudança
         config.deleteRealmIfMigrationNeeded = true; // isso deve ser removido quando colocado em produção
